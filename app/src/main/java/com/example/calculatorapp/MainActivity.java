@@ -45,17 +45,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button btn =(Button) findViewById(R.id.button);
-        EditText text = (EditText) findViewById(R.id.inputText);
+        EditText text =  findViewById(R.id.inputText);
         TextView isValid = (TextView) findViewById(R.id.textView2);
-        String inputString = text.getText().toString();
+
         createHashMap();
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String inputString = text.getText().toString();
                 boolean res = validInput(inputString);
                 if(res){
 
-                    isValid.setText("The string is Valid");
+                    isValid.setText("The string is Valid" );
                 }
 
                 else{
