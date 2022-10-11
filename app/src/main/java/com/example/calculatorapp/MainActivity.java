@@ -2,10 +2,15 @@ package com.example.calculatorapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.HashSet;
 
@@ -41,11 +46,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button btn =(Button) findViewById(R.id.button);
         EditText text = (EditText) findViewById(R.id.inputText);
+        TextView isValid = (TextView) findViewById(R.id.textView2);
         String inputString = text.getText().toString();
+        createHashMap();
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                boolean res = validInput(inputString);
+                if(res){
+
+                    isValid.setText("The string is Valid");
+                }
+
+                else{
+                    isValid.setText("String is not valid");
+                }
             }
         });
 
